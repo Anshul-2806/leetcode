@@ -1,0 +1,19 @@
+/*
+
+*/
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int c = 0, major = 0;
+        for (int num : nums) {
+            if (c == 0) {
+                major = num;
+                c = 1;
+            } else {
+                c += (major == num ? 1 : -1);
+            }
+        }
+        return major;        
+    }
+};
