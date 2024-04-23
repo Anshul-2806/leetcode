@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+        int n = nums.size();
+        int ce=0, co=0, o=0;
+        for(int i=0; i<n; i++){
+            if (nums[i]>0) ce++;
+            else if(nums[i] < 0){
+                co++;
+            } else o++;
+        }
+        if(ce > co) return ce;
+        else return co;
+    }
+};
