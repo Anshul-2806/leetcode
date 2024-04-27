@@ -1,0 +1,40 @@
+void findSymPairs(int arr[][2], int row)
+{
+    // This loop for selection of one pair
+    for (int i = 0; i < row; i++) {
+      // This loop for searching of symmetric pair
+        for (int j = i + 1; j < row; j++) {
+            // Condition of symmetric pair
+            if (arr[i][0] == arr[j][1]
+                and arr[i][1] == arr[j][0])
+            {
+                cout << "(" << arr[i][0] << ", "
+                     << arr[i][1] << ")" << endl;
+            }
+        }
+    }
+
+O(n^2)
+
+void findSymPairs(int arr[][2], int row)
+{
+  unordered_map<int, int> hM;
+ 
+    // Traverse given array
+    for (int i = 0; i < row; i++)
+    {
+        // First and second elements of current pair
+        int first = arr[i][0];
+        int sec   = arr[i][1];
+ 
+        // If found and value in hash matches with first
+        // element of this pair, we found symmetry
+        if (hM.find(sec) != hM.end() && hM[sec] == first)
+            cout << "(" << sec << ", " << first << ")" <<endl;
+ 
+        else  // Else put sec element of this pair in hash
+            hM[first] = sec;
+    }
+}
+
+O(n)
