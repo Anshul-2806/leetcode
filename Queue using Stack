@@ -1,0 +1,86 @@
+// Define a node for the singly linked list
+class Node {
+public:
+    int data;
+    Node* link;
+
+    Node(int n) {
+        this->data = n;
+        this->link = nullptr;
+    }
+};
+
+// Stack class
+class Stack {
+    Node* top;
+
+public:
+    Stack() {
+        top = nullptr;
+    }
+
+    // Push operation: Insert a new element at the beginning of the linked list
+    void push(int data) {
+        Node* temp = new Node(data);
+        if (!temp) {
+            cout << "\nStack Overflow"; // Handle memory allocation failure
+            exit(1);
+        }
+        temp->link = top;
+        top = temp;
+    }
+
+    // Pop operation: Remove the top element from the linked list
+    void pop() {
+        if (top == nullptr) {
+            cout << "\nStack Underflow" << endl;
+            exit(1);
+        } else {
+            Node* temp = top;
+            top = top->link;
+            delete temp;
+        }
+    }
+
+    // Peek operation: Return the top element without removing it
+    int peek() {
+        if (top != nullptr)
+            return top->data;
+        else {
+            cout << "\nStack is empty." << endl;
+            exit(1);
+        }
+    }
+
+    // Display operation: Print all elements in the stack
+    void display() {
+        Node* temp = top;
+        cout << "Stack elements: ";
+        while (temp != nullptr) {
+            cout << temp->data << " ";
+            temp = temp->link;
+        }
+        cout << endl;
+    }
+
+    // Check if the stack is empty
+    bool isEmpty() {
+        return top == nullptr;
+    }
+};
+
+int main() {
+    Stack myStack;
+    myStack.push(10);
+    myStack.push(20);
+    myStack.push(30);
+
+    cout << "Top element: " << myStack.peek() << endl;
+    myStack.pop();
+    cout << "Top element after pop: " << myStack.peek() << endl;
+
+    myStack.display();
+
+    return 0;
+}
+
