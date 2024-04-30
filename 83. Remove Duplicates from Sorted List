@@ -26,6 +26,33 @@ public:
                 cur = cur->next;
             }
         }
+
+    // 2nd approach by two pointers
+    if(head == NULL || head->next == NULL){
+            return head;
+        }
+
+        int temp = head->val;
+        ListNode* tempHead = head->next;
+        ListNode* prev = head;
+        while(tempHead != NULL){
+            if(tempHead->val != temp){
+                temp = tempHead->val;
+                prev = tempHead;
+                tempHead = tempHead->next;
+            }
+            else{
+                prev->next = tempHead->next;
+                tempHead = prev->next;
+            }
+        }
+
+    // 3rd approach
+    ListNode *ans = head;
+        while(ans && ans->next){
+            if(ans->val == ans->next->val) ans->next = ans->next->next;
+            else ans = ans->next;
+        }
         return head;
     }
 };
