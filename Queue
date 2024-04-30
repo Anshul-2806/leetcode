@@ -1,0 +1,44 @@
+int front = -1 , rear  =-1;
+bool empty(){
+  if(front = -1 || front == rear+1)
+    return true;
+  return false;
+}
+ bool full(){
+  if(rear == MAX_SIZE-1
+    return true;
+  return false;
+ }
+
+void enque(int val){
+  if(full()){
+    cout<<"Queue overflow";
+    return;
+  }
+  if(rear == -1){
+    front++;
+}
+rear++;
+data[rear]=val;
+}
+
+int dequee(){
+  if(empty()){
+    cout<<"Queue already empty";
+    return INT_MIN;
+  }
+  int temp = data[front];
+  front++;
+  return temp;
+}
+
+int peek(){
+  if(empty(){
+    cout<<"Queue already empty";
+    return INT_MIN;
+  }
+  return data[front];
+}
+
+
+
