@@ -11,6 +11,7 @@ bool empty(){
  }
 
 void enque(int val){
+  // list.pop_back(val);
   if(full()){
     cout<<"Queue overflow";
     return;
@@ -28,6 +29,7 @@ int dequee(){
     return INT_MIN;
   }
   int temp = data[front];
+// list.pop_front();
   front++;
   return temp;
 }
@@ -37,8 +39,13 @@ int peek(){
     cout<<"Queue already empty";
     return INT_MIN;
   }
+  // return list.front();
   return data[front];
 }
 
 
+
+year == pics // avg chance 
+year > pics // high chance
+year < pics // low chance
 
