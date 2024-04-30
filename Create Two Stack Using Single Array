@@ -1,0 +1,117 @@
+void push1(){
+if(overflow()){
+cout<<"Stack overflow";
+return;
+}
+tos1++;
+st[tos1]=val;
+}
+
+void push2(){
+if(overflow()){
+cout<<"Stack overflow";
+return;
+}
+tos2--;
+st[tos2]=val;
+}
+
+
+int top1(){
+if(tos1 == -1){
+cout<<"stakc overflow";
+return INT_MIN;
+}
+return s1[tos1];
+}
+
+
+int pop1(){
+if(tos1==-1
+{
+cout<<"stakc overflow";
+return INT_MIN;
+}
+int temp = st[tos1];
+tos1--;
+return temp;
+}
+
+
+int pop2(){
+if(tos2==MAX_SIZE()
+{
+cout<<"stakc underflow";
+return INT_MIN;
+}
+int temp = st[tos2];
+tos2++;
+return temp;
+}
+
+--------------------------------------------------------------------
+
+class TwoStacksInSingleARR {
+    int* arr;
+    int top1, top2;
+    int capacity;
+
+public:
+    TwoStacksInSingleARR(int n) {
+        capacity = n;
+        arr = new int[n];
+        top1 = -1;
+        top2 = n / 2;
+    }
+
+    bool push1(int x) {
+        if (top1 < top2 - 1) {
+            arr[++top1] = x;
+            return true;
+        } else {
+            cout << "Stack Overflow\n";
+            return false;
+        }
+    }
+
+    bool push2(int x) {
+        if (top2 < capacity) {
+            arr[++top2] = x;
+            return true;
+        } else {
+            cout << "Stack Overflow\n";
+            return false;
+        }
+    }
+
+    int pop1() {
+        if (top1 >= 0) {
+            return arr[top1--];
+        } else {
+            cout << "Stack Underflow\n";
+            exit(1);
+        }
+    }
+
+    int pop2() {
+        if (top2 >= capacity / 2 + 1) {
+            return arr[top2--];
+        } else {
+            cout << "Stack Underflow\n";
+            exit(1);
+        }
+    }
+};
+
+int main() {
+    TwoStacksInSingleARR ts(5);
+    ts.push1(5);
+    ts.push2(15);
+    ts.push1(11);
+    ts.push2(7);
+
+    cout << "Popped element from stack1: " << ts.pop1() << endl;
+    cout << "Popped element from stack2: " << ts.pop2() << endl;
+
+    return 0;
+}
