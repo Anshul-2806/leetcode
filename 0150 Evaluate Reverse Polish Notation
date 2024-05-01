@@ -1,0 +1,58 @@
+Evaluate the expression. Return an integer that represents the value of the expression.
+
+Note that:
+
+The valid operators are '+', '-', '*', and '/'.
+Each operand may be an integer or another expression.
+The division between two integers always truncates toward zero.
+There will not be any division by zero.
+The input represents a valid arithmetic expression in a reverse polish notation.
+The answer and all the intermediate calculations can be represented in a 32-bit integer.
+ 
+
+Example 1:
+
+Input: tokens = ["2","1","+","3","*"]
+Output: 9
+Explanation: ((2 + 1) * 3) = 9
+
+--------------------------------------------------------------
+stack <int> s;
+for(auto t:tokens){
+  if(t=="+" || t=="-" || t=="*" || t=="/"){
+    int n2 = s.top();
+    s.pop();
+    int n1 = s.top();
+    s.pop();
+  if(t=="+") res = n1 + n2;
+  else if(t=="-") res = n1 - n2;
+  else if(t=="*") res = n1 * n2;
+  else if(t=="/") res = n1 / n2;
+  s.push(res);
+  }
+  }
+}
+
+
+--------------------------------------------------------------
+    int evalRPN(vector<string>& tokens) {
+        stack<int> stk;
+        for (auto& t : tokens) {
+            if (t.size() > 1 || isdigit(t[0]))
+            {
+                stk.push(stoi(t));
+            }
+            else
+            {
+                int y = stk.top();
+                stk.pop();
+                int x = stk.top();
+                stk.pop();
+                if (t[0] == '+') stk.push(x + y);
+                else if (t[0] == '-') stk.push(x - y);
+                else if (t[0] == '*') stk.push(x * y);
+                else stk.push(x / y);
+            }
+        }
+        return stk.top();
+    }
