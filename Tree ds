@@ -1,0 +1,23 @@
+ class TreeNode{
+  public:
+    int data;
+    TreeNode *left;
+    TreeNode *right;
+
+    TreeNode(int data){
+        this->data = data;
+        this->left = NULL ;
+        this-> right = NULL;
+    }
+};
+
+int main(){
+
+TreeNode *root = new TreeNode(10);
+TreeNode *n1 = new TreeNode(5);
+TreeNode *n2 = new TreeNode(4);
+root->left = n1;
+root->right = n2;
+n1->left = new TreeNode(9);
+n1->right = new TreeNode(11);
+}
