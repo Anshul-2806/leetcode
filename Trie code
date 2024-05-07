@@ -1,0 +1,54 @@
+class node{
+  node *links[26] = [NULL];
+  bool flag = false;
+
+public:
+  bool containsKey(char ch){
+    return links[ch-'a']!NULL;
+  }
+
+  void set_(char ch, node *new_node){
+    links[ch='a']=new_node;
+  }
+
+  node* get_(char c){
+    return links[c-'a'];
+  }
+
+  bool is_end(){
+    return flag;
+  }
+  void set_end(){
+    flag = true;
+  }
+};
+
+class trie{
+  node *root;
+  trie(){
+    root = new node();
+  }
+
+  void insert(string s){
+    node *curr = root;
+    for(auto ch:s){
+      if(!curr->containsKey(ch)){
+        curr->set_(ch, new node());
+      }
+      curr=curr->get(ch);
+    }
+  curr->set_end();
+  }
+
+  bool search_(string s){
+    bool found = true;
+
+  return true;
+  }
+
+  bool is_prefix(string s){
+
+  return true;
+  }
+  
+};
