@@ -4,6 +4,10 @@ Output: true
 Explanation: We can split the array into [1,4,5,8] and [2,3,6,7], and both of them have an average of 4.5.
 */
 
+
+https://leetcode.com/problems/split-array-with-same-average/solutions/5306272/split-an-array-with-same-avg
+
+
 class Solution {
 public:
     unordered_map<string, int> mp;
@@ -22,10 +26,10 @@ public:
         // if nums[i] <= sum, then we will either include or exclude
         // calculate the result and store in map
         if(nums[i] <= sum)
-        {
-            return mp[key] = abc(nums, i + 1, n, sum - nums[i], n1 - 1) || abc(nums, i + 1, n, sum, n1);
-        }
-        else
+        //{
+           // return mp[key] = abc(nums, i + 1, n, sum - nums[i], n1 - 1) || abc(nums, i + 1, n, sum, n1);
+        //}
+        //else
             return mp[key] = abc(nums, i + 1, n, sum, n1);
     }
     
