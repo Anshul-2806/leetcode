@@ -1,0 +1,23 @@
+#include<stdlib.h>
+class Solution {
+public:
+    int arrayNesting(vector<int>& nums) {
+
+        int maxLen = 0;
+        
+        for (int i = 0; i < nums.size(); i++) {
+            int len = 0;
+            int current = i;
+            
+            while (nums[current] != -1) {
+                int next = nums[current];
+                nums[current] = -1; // Marking as visited
+                len++;
+                current = next;
+            }
+        
+            maxLen = Math.max(maxLen, len);
+        }
+        return maxLen;
+    }
+};
